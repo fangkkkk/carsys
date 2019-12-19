@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.user.user.dao.MemberTagMapper">
+  <resultMap id="BaseResultMap" type="com.qf.user.user.entity.MemberTag">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="tag_id" jdbcType="INTEGER" property="tagId" />
+    <result column="create_time" jdbcType="INTEGER" property="createTime" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, member_id, tag_id, create_time
+  </sql>
+
+  <insert id="insert" parameterType="com.qf.user.user.entity.MemberTag">
+    insert into member_tag (id, member_id, tag_id, 
+      create_time)
+    values (#{id,jdbcType=BIGINT}, #{memberId,jdbcType=BIGINT}, #{tagId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=INTEGER})
+  </insert>
+</mapper>
